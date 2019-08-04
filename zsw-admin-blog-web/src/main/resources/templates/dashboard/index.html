@@ -1,0 +1,87 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:include="common::header"></div>
+    <link rel="stylesheet" th:href="@{/css/dashboard/index.css}"/>
+</head>
+<body>
+<div id="app" v-cloak>
+    <el-button @click="sortStart" type="primary" round>排序开始</el-button>
+    <el-button @click="sortEnd" type="primary" round>排序结束</el-button>
+    <div id="cards">
+        <el-card class="box-card">
+            <ul>
+                <li class="title">
+                    <span>总销售额度</span>
+                </li>
+                <li  class="data">
+                    <span>￥ 10212120.1</span>
+                </li>
+                <li class="contrast">
+                    <span>周同比 12%</span>
+                    <span>日同比 11%</span>
+                </li>
+                <li class="total">
+                    <span>日销售额  ￥ 12,343</span>
+                </li>
+            </ul>
+        </el-card>
+        <el-card class="box-card">
+            <ul>
+                <li class="title">
+                    <span>总销售额度</span>
+                </li>
+                <li  class="data">
+                    <span>￥ 1010.1</span>
+                </li>
+                <li class="contrast">
+                    <span>周同比 12%</span>
+                    <span>日同比 11%</span>
+                </li>
+                <li class="total">
+                    <span>日销售额  ￥ 12,343</span>
+                </li>
+            </ul>
+        </el-card>
+        <el-card class="box-card">
+            <ul>
+                <li class="title">
+                    <span>总销售额度</span>
+                </li>
+                <li  class="data">
+                    <span>￥ 1020.1</span>
+                </li>
+                <li class="contrast">
+                    <span>周同比 12%</span>
+                    <span>日同比 11%</span>
+                </li>
+                <li class="total">
+                    <span>日销售额  ￥ 12,343</span>
+                </li>
+            </ul>
+        </el-card>
+        <el-card class="box-card">
+            <ul>
+                <li class="title">
+                    <span>总销售额度</span>
+                </li>
+                <li  class="data">
+                    <span>￥ 100.21</span>
+                </li>
+                <li class="contrast">
+                    <span>周同比 12%</span>
+                    <span>日同比 11%</span>
+                </li>
+                <li class="total">
+                    <span>日销售额  ￥ 12,343</span>
+                </li>
+            </ul>
+        </el-card>
+    </div>
+</div>
+</body>
+<div th:include="common::footer"></div>
+<script type="text/javascript" th:src="@{/plugins/sortable.js}"></script>
+<script type="text/javascript" th:src="@{/js/dashboard/index.js}"></script>
+</html>

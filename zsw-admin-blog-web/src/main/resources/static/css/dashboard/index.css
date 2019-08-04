@@ -1,0 +1,31 @@
+.box-card{
+    display: inline-block;
+    width: 23%;
+    margin: 5px 10px;
+}
+.box-card .title{
+    color: rgba(0,0,0,.45);
+    font-size: 14px;
+    padding: 5px 0;
+}
+.box-card .data{
+    color: rgba(0,0,0,.85);
+    font-size: 30px;
+}
+.box-card .contrast{
+    font-size: 14px;
+    margin-top: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #efefef;
+    color: rgba(0, 0, 0, 0.65);
+}
+.box-card .total{
+    margin-top: 10px;
+    padding-bottom: 10px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.sortable-ghost {
+    opacity: 0.4;
+    background-color: #F4E2C9;
+}

@@ -1,0 +1,84 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:include="common::header"></div>
+    <style type="text/css">
+        .button{
+            margin: 10px !important;
+            display: inline-block;
+        }
+        .button a{
+            display: inline-block;
+        }
+        .movies{
+            display: inline-block;
+            width: 25%;
+            margin: 20px;
+        }
+        .movies img {
+            transition: All 0.4s ease-in-out;
+            -webkit-transition: All 0.4s ease-in-out;
+            -moz-transition: All 0.4s ease-in-out;
+            -o-transition: All 0.4s ease-in-out;
+        }
+
+        .movies img:hover {
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app"  v-cloak>
+        <div class="movies"  v-for="m in movies">
+            <el-card class="box-card" @click="show(m)">
+                <div slot="header" class="clearfix">
+                    <span>{{m.name}}</span>
+                    <el-button style="float: right; padding: 3px 0" type="text" @click="show(m)">查看</el-button>
+                </div>
+                <img :src="m.image" width="200px"/>
+            </el-card>
+        </div>
+        <el-dialog title="详细信息" :visible.sync="dialogVisible" :modal-append-to-body='false'>
+            <div v-if="tabFlag">
+                <el-tabs v-model="activeName">
+                    <el-tab-pane v-for="detail in details" :label="detail.name" :name="detail.name" >
+                        <div class="button" v-for="c in detail.content">
+                            <a :href="c.url">
+                                <el-button>{{c.name}}</el-button>
+                            </a>
+                        </div>
+                    </el-tab-pane>
+                </el-tabs>
+            </div>
+            <div v-else>
+                <div class="button" v-for="detail in details">
+                    <a href="detail.url">
+                        <el-button>{{detail.name}}</el-button>
+                    </a>
+                </div>
+            </div>
+        </el-dialog>
+
+
+        <div class="block">
+            <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="page.currentPage"
+                    :page-sizes="page.pageSizes"
+                    :page-size="page.pageSize"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="page.total">
+            </el-pagination>
+        </div>
+    </div>
+</body>
+<div th:include="common::footer"></div>
+<script type="text/javascript" th:src="@{/js/movie/list.js}"></script>
+</html>
